@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Result</title>
+</head>
+<body>
+    <div class="container">
+        <% if(user != null) { %>
+        <h1>Search Result:</h1>
+        <div class = "searchResult">
+            <h2>User Information</h2>
+            <h3>Name: <%= user.name %></h3>
+            <h3>Email: <%= user.email %></h3>
+            <h3>Age: <%= user.age %></h3>
+            <h3>Address: <%= user.address %></h3>
+        </div>
+        <% } else { %>
+            <h2> User not found </h2>
+        <% } %>
+            
+    </div>
+</body>
+</html>

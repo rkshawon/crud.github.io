@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+}
+:root{
+    --green: yellowgreen
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.header{
+    background-color: var(--green);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h1{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40%;
+}
+.search{
+    width: 25%;
+    text-align: end;
+    padding-right: 15px;
+}
+.searchbar{
+    margin: 5px;
+    border-radius: 2px;
+    outline: none;
+    border: 2px solid transparent;
+    width: 60%;
+    font-weight: bold;
+}
+#searchButton{
+    border: 1px solid transparent;
+    outline: none;
+    font-weight: bold;
+    background-color: rgb(199, 241, 212);
+}
+#searchButton:hover{
+    cursor: pointer;
+    background-color: rgb(126, 241, 163);
+}
+.table{
+    margin-top: 30px;
+    background-color: rgb(243, 249, 252);
+}
+.thead tr, thead th{
+    background-color: var(--green);
+    outline: 1px solid var(--green);
+}
+#nofield, #agefield, #updatefield, #deletefield{
+    padding-left: 5px;
+    padding-right: 5px;
+}
+#namefield, #emailfield, #addressfield{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.update{
+    background-color: rgb(56, 66, 199);
+    border-radius: 2px;
+    padding: 2px 10px 2px 10px;
+    border: 1px solid transparent;
+    width: 100%;
+}
+.delete{
+    background-color: rgb(199, 56, 56);
+    border-radius: 2px;
+    padding: 2px 10px 2px 10px;
+    border: 1px solid transparent;
+    outline: none;
+    width: 100%;
+}
+.update:hover, .delete:hover{
+    cursor: pointer;
+    background-color: rgb(167, 122, 231);
+}
+.update i{
+    color: rgb(255, 255, 255);
+}
+tbody tr #nofield{
+    background-color: rgb(195, 231, 240);
+}
+.delete i{
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 255, 255));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.thead th{
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.tbody th{
+    padding: 2px;
+}
+.tbody tr:hover{
+    background-color: rgb(239, 230, 252);
+}
+#button{
+    margin-top: 50px;
+    border: solid 1px transparent;
+    background-color: var(--green);
+    border-radius: 1px;
+    padding: 5px;
+    font-weight: bold;
+}
+#button:hover{
+    cursor: pointer;
+    background-color: rgb(184, 245, 224);
+}
+@media screen and (max-width: 720px){
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+    h1{
+        margin-left: 0;
+    }
+}

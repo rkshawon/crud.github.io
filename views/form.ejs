@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel = "stylesheet" href = "/css/formStyle.css">
+    <title>Form</title>
+</head>
+<body>
+    <h1>New User</h1>
+    <div class = "container">
+        <h2>User Form</h2>
+        <form class = "form" method = "POST" action = "/api/userinfo">
+            <div class="input">
+                <label for= "name">Name</label>
+                <input class ="" id="name" type ="text" name ="name" placeholder="Enter your name">
+                <span class ="">something is wrong</span>
+            </div>
+            <div class="input">
+                <label for= "email">Email</label>
+                <input class ="" id="email" type ="email" name ="email" placeholder="Enter your email">
+                <span class ="">something is wrong</span>
+            </div>            
+            <div class="input">
+                <label for= "age">Age</label>
+                <input class ="" id="age" type ="text" name ="age" placeholder="Enter your age">
+                <span class ="">something is wrong</span>
+            </div>            
+            <div class="input">
+                <label for= "address">Address</label>
+                <input class ="" id="address"type ="text" name ="address" placeholder="Enter your address" size="5" maxlength="50">
+                <span class ="">something is wrong</span>
+            </div>
+            <div class = "buttonContainer">
+                <button type="submit" id="button">Submit</button>
+                <a href="/"><button type="button" id="button">Back</button></a>
+            </div>
+        </form>
+    </div>
+    <script src="../javascript/errorScript.js"></script>
+</body>
+</html>

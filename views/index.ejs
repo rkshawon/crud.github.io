@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel= "stylesheet" href="/css/style.css">
+
+    <title>List</title>
+</head>
+<body>
+    <div class="container">
+    <div class="header">
+        <h1>User Management System</h1>
+        <div class="search">
+            <input class = "searchbar" type="text" value = "" placeholder="Enter email">
+            <button id = "searchButton">Search</button>
+        </div>
+    </div>
+     <a href="/form"><button id="button">Add New User</button></a>
+        <div class="table">
+            <table>
+                <thead class = "thead">
+                    <tr>
+                        <th id="nofield">No</th>
+                        <th id="namefield">Name</th>
+                        <th id="emailfield">Email</th>
+                        <th id="agefield">Age</th>
+                        <th id="addressfield">Address</th>
+                        <th id="updatefield">Update</th>
+                        <th id="deletefield">Delete</th>
+                    </tr>
+                </thead>
+                <tbody class = "tbody">
+                    <% for(var i = 0; i<users.length; i++){%>
+                    <tr id="tr">
+                        <th id="nofield"><%= i+1 %></th>
+                        <th id="namefield"><%= users[i].name %></th>
+                        <th id="emailfield" class = "email" value=<%= users[i]._id %>><%= users[i].email %></th>
+                        <th id="agefield"><%= users[i].age %></th>
+                        <th id="addressfield"><%= users[i].address %></th>
+                        <th id="updatefield"><button class="update" data-id=<%= users[i]._id %>><i class="fas fa-edit"></i></button></th>
+                        <th id="deletefield"><button class="delete" data-id=<%= users[i]._id %>><i class="fas fa-times"></i></button></th>
+                    </tr>
+                <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="../javascript/script.js"></script>
+</body>
+</html>

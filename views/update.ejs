@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel = "stylesheet" href = "/css/formStyle.css">
+    <title>Update Form</title>
+</head>
+<body>
+    <h1>Update User</h1>
+    <div class = "container">
+        <h2>Update Information</h2>
+        
+        <form class = "form" method = "POST" >
+            <div class="input">
+                <label for= "name">Name</label>
+                <input class ="" type ="text" name ="name" id="name" value="<%=user.name%>">
+                <span class ="">something is wrong</span>
+            </div>
+            <div class="input">
+                <label for= "email">Email</label>
+                <input class =""  type ="email" name ="email" id="email" value="<%=user.email%>">
+                <span class ="">something is wrong</span>
+            </div>            
+            <div class="input">
+                <label for= "age">Age</label>
+                <input class =""  type ="text" name ="age" id="age" value="<%=user.age%>">
+                <span class ="">something is wrong</span>
+            </div>            
+            <div class="input">
+                <label for= "address">Address</label>
+                <input class ="" type ="text" name ="address" id="address" value="<%=user.address%>">
+                <span class ="">something is wrong</span>
+            </div>
+            <div class = "buttonContainer">
+                <button type="submit" data-id= <%= user._id%> id="updateButton">Update</button>
+                <a href="/"><button type="button" id="button">Back</button></a>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        const submitUpdatedValue = document.getElementById("updateButton");
+        const username = document.querySelector("#name")
+        const erremail = document.querySelector("#email")
+        const errage = document.querySelector("#age")
+        const erraddress = document.querySelector("#address")
+
+        submitUpdatedValue.addEventListener("click",(e)=>{
+            e.preventDefault()
+            cheackLength(username, 15, 2)
+            cheackLength(address, 50, 10)
+            cheackLength(age, 3, 1)
+            emailValidation(email)
+
+            if(cheackLength(username, 15, 2) == true 
+            && cheackLength(erraddress, 50, 10) == true 
+            && cheackLength(errage, 3, 1) == true 
+            && emailValidation(erremail) == true){
+           
+            let id = submitUpdatedValue.getAttribute("data-id")
+            let name = document.querySelector("#name").value
+            let email = document.querySelector("#email").value
+            let age = document.querySelector("#age").value
+            let address = document.querySelector("#address").value
+
+            const singleData = {
+                id: id,
+                name: name,
+                email: email,
+                age: age,
+                address: address
+            }
+            const data = {
+                method: 'POST',
+                body: JSON.stringify(singleData),
+                headers: {
+                    "Content-Type" : "application/json; charset=UTF-8"
+                }
+            } 
+            fetch("http://localhost:3000/update", data)
+            .then(()=>{ 
+                alert("Data was updated successfully") 
+            })
+        }
+    })
+
+        function showError(input, messege){
+            input.className = "error"
+            const errMessage = input.nextElementSibling;
+            errMessage.innerText = messege
+            errMessage.className = "span"
+            return false
+        }
+        function showSuccess(input){
+            input.className = "success"
+            const errMessage = input.nextElementSibling;
+            errMessage.className = ""
+            return true
+        }
+        function cheackLength(input, max, min){
+            if(input.value.length > max){
+                return showError(input, `${firstLatterUppercase(input.name)} can not be more than ${max}`)
+            }
+            else if(input.value.length < min){
+                return showError(input, `${firstLatterUppercase(input.name)} can not be less than ${min}`)
+            }
+            else{
+                return showSuccess(input)
+            }
+        }
+        function emailValidation(input){
+            if(!validateEmail(input.value)){
+                return showError(input, "Email is not valid")
+            }else{
+                return showSuccess(input)
+            }
+        }
+        function validateEmail(email) {
+            const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+        function firstLatterUppercase(input){
+            return input.charAt(0).toUpperCase() + input.slice(1)
+        }
+    </script>
+</body>
+</html>
